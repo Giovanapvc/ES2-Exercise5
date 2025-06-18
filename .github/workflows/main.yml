@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: [3.8, 3.10]
+        python-version: ['3.8', '3.10']
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -31,3 +31,6 @@ jobs:
       - name: Executa testes
         run: |
           pytest --maxfail=1 --disable-warnings -q
+        env:
+          LC_ALL: C.UTF-8
+          LANG: C.UTF-8
